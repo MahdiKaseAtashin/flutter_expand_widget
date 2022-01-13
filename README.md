@@ -5,7 +5,6 @@ A new Flutter project.
 ## Getting Started
 
 sample ui implementation for ExpansionPanelList
-</br>just a simple widget
 </br>basic implementation of widget
 </br></br>
 
