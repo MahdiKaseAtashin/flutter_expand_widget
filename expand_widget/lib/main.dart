@@ -161,42 +161,42 @@ class Expansionpaneltate extends State<Expansionpanel> {
   @override
   Widget build(BuildContext context) {
     Scaffold scaffold = Scaffold(
-      appBar: AppBar(
-        title: const Text("ExpansionPanelList"),
-      ),
-      body: ListView(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: ExpansionPanelList(
-              expansionCallback: (int index, bool isExpanded) {
-                setState(() {
-                  items[index].isExpanded = !items[index].isExpanded;
-                });
-              },
-              children: items.map((NewItem item) {
-                return ExpansionPanel(
-                  headerBuilder: (BuildContext context, bool isExpanded) {
-                    return Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: ListTile(
-                          title: Text(
-                        item.header,
-                        textAlign: TextAlign.left,
-                        style: const TextStyle(
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      )),
-                    );
-                  },
-                  isExpanded: item.isExpanded,
-                  body: item.body,
-                );
-              }).toList(),
+      body: Container(
+        margin: const EdgeInsets.only(top: 24),
+        child: ListView(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: ExpansionPanelList(
+                expansionCallback: (int index, bool isExpanded) {
+                  setState(() {
+                    items[index].isExpanded = !items[index].isExpanded;
+                  });
+                },
+                children: items.map((NewItem item) {
+                  return ExpansionPanel(
+                    headerBuilder: (BuildContext context, bool isExpanded) {
+                      return Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: ListTile(
+                            title: Text(
+                          item.header,
+                          textAlign: TextAlign.left,
+                          style: const TextStyle(
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        )),
+                      );
+                    },
+                    isExpanded: item.isExpanded,
+                    body: item.body,
+                  );
+                }).toList(),
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
     return scaffold;
